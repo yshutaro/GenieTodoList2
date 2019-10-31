@@ -1,5 +1,8 @@
 module TasksController
+
 using Genie.Renderer
+using SearchLight
+using Tasks
 
 struct Task
   id::Int
@@ -7,14 +10,8 @@ struct Task
   done::Bool
 end
 
-const SampleTasks = Task[
-  Task(1,"歯医者に行く",false),
-  Task(2,"はがきを出す",true),
-  Task(3,"定期券を買う",false),
-]
-
 function index()
-  html(:tasks, :tasks, tasks = SampleTasks)
+  html(:tasks, :tasks, tasks = SearchLight.all(Tasks.Task))
 end
 
 end
