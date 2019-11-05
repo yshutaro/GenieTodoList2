@@ -1,0 +1,25 @@
+<form action="$(Genie.Router.linkto(:update_task))" method="POST">
+  <div>
+    <label>
+       内容:<input type="text" name="task_content" value="$((get(@vars(:task))).content)" />
+    </label>
+  </div>
+  <div>
+    <label>
+        <%
+          if (get(@vars(:task))).done == true
+            checked = "checked"
+          else 
+            checked = ""
+          end
+        %>
+        完了:<input type="checkbox" name="task_done" value="1" checked="$(checked)" />
+    </label>
+  </div>
+  <div>
+    <input type="hidden" name="task_id" value="1" />
+  </div>
+  <div>
+    <input type="submit" value="更新" />
+  </div>
+</form>

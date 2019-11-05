@@ -1,3 +1,4 @@
+<a href="$(Genie.Router.linkto(:new_task))">作成</a>
 <ul>
 <%
   if length(@vars(:tasks)) == 0
@@ -5,9 +6,9 @@
   else
     @foreach(@vars(:tasks)) do task
       if task.done
-      "<li><s>$(task.content)</s></li>"
+        "<a href=\"$(Genie.Router.linkto(:edit_task))?task_id=$(task.id)\"><li><s>$(task.content)</s></li></a>"
       else
-      "<li>$(task.content)</li>"
+        "<a href=\"$(Genie.Router.linkto(:edit_task))?task_id=$(task.id)\"><li>$(task.content)</li></a>"
       end
     end
   end
