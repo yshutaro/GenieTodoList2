@@ -8,12 +8,11 @@
     <label>
         <%
           if (get(@vars(:task))).done == true
-            checked = "checked"
+            """完了:<input type="checkbox" name="task_done" value="1" checked="checked" />"""
           else 
-            checked = ""
+            """完了:<input type="checkbox" name="task_done" value="1" />"""
           end
-        %>
-        完了:<input type="checkbox" name="task_done" value="1" checked="$(checked)" />
+         %>
     </label>
   </div>
   <div>
