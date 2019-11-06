@@ -13,4 +13,4 @@ route("/tasks/new", TasksController.new, named = :new_task) # namedを追加
 route("/tasks/create", TasksController.create, method = POST, named = :create_task)
 
 route("/tasks/:id::Int/edit", TasksController.edit, method = GET, named = :edit_task)
-route("/task/:id::Int/update", TasksController.update, method = POST, named = :update_task)
+route("/tasks/:id::Int/update", TasksController.update, method = POST, named = :update_task)
