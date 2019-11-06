@@ -1,4 +1,4 @@
-<form action="$(Genie.Router.linkto(:update_task))" method="POST">
+<form action="$(Genie.Router.linkto(:update_task, id = (get(@vars(:task))).id))" method="POST">
   <div>
     <label>
        内容:<input type="text" name="task_content" value="$((get(@vars(:task))).content)" />

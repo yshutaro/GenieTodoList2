@@ -25,23 +25,21 @@ function create()
 end
 
 function edit()
-  id = @params(:task_id)
+  id = payload(:id)
   task = SearchLight.findoneby(Tasks.Task , SQLWhereExpression("id = ?", id))
   html(:tasks, :edit, task = task)
 end
 
 function update()
+  id = payload(:id)
   done = false
   try
-    if @params(:task_done) == "1"
-      done = true
-    else
-      done = false
-    end
-  catch e
-      done = false
+    @params(:task_done)
+    done = true
+  catch
+    done = false
   end
-  Tasks.Task(id = @params(:task_id), content = @params(:task_content), done = done) |> save && redirect(:get_tasks)
+  Tasks.Task(id = id, content = @params(:task_content), done = done) |> save && redirect(:get_tasks)
 end
 
 end
